@@ -1,18 +1,26 @@
 import React from 'react';
 import './index.css'
 
+var getCellDimensions = function() {
+  const height = 20, width = 20;
+  return [height, width];
+}
+
 class Cell extends React.Component {
   render() {
+    const [height, width] = getCellDimensions();
+    const {i, j} = this.props;
+    const colour = ((i + j) % 2 == 0) ? 'black': 'white';
+
     const style = {
-      height: toString(this.props.height) + "px",
-      width: toString(this.props.width) + "px",
-      border: "dotted"
+      height: '' + height + 'px',
+      width: '' + width + 'px',
+      float: "left",
+      background: colour,
     };
+
     return (
-      <div
-        style={style}
-       >
-        abcd
+      <div style={style}>
       </div>
     );
   }
